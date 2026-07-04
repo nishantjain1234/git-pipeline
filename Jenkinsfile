@@ -7,11 +7,14 @@ pipeline {
   stages{
     stage("Stage1"){
       steps{
-        sh '''
-        echo "Pipe-1"
-        cat pipe1.txt
-        '''
+        script {
+          sh '''
+          echo "Pipe-1"
+          cat pipe1.txt
+          '''
         env.BUILD_SUCCESS = "true"
+        }
+    
       }
     }
     stage("Stage2"){
