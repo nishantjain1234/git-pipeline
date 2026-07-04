@@ -10,8 +10,8 @@ pipeline {
         sh '''
         echo "Pipe-1"
         cat pipe1.txt
-        env.BUILD_SUCCESS = "true"
         '''
+        env.BUILD_SUCCESS = "true"
       }
     }
     stage("Stage2"){
