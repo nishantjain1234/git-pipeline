@@ -1,20 +1,13 @@
 pipeline {
   agent any
-  environment {
-    BUILD_SUCCESS = "false"
-  }
-
+  
   stages{
     stage("Stage1"){
       steps{
-        script {
           sh '''
           echo "Pipe-1"
           cat pipe1.txt
-          '''
-        env.BUILD_SUCCESS = "true"
-        }
-    
+          '''  
       }
     }
     stage("Stage2"){
@@ -27,7 +20,7 @@ pipeline {
     }
     stage("Stage3"){
       when {
-        environment name: 'BUILD_SUCCESS', value: 'false'
+        branch 'main'
       }
       steps{
         sh '''
@@ -36,6 +29,5 @@ pipeline {
         '''
       }
     }
-  }
-    
+  }   
 }
