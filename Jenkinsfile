@@ -24,7 +24,7 @@ pipeline {
     }
     stage("Stage3"){
       when {
-        environmentname: 'BUILD_SUCCESS', value: 'true'
+        environment name: 'BUILD_SUCCESS', value: 'true'
       }
       steps{
         sh '''
