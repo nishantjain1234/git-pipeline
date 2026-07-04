@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    x= "false"
+    BUILD_SUCCESS = "false"
   }
 
   stages{
@@ -10,7 +10,7 @@ pipeline {
         sh '''
         echo "Pipe-1"
         cat pipe1.txt
-        env.x= "true"
+        env.BUILD_SUCCESS = "true"
         '''
       }
     }
@@ -24,7 +24,7 @@ pipeline {
     }
     stage("Stage3"){
       when {
-        environmentname: 'x', value: 'true'
+        environmentname: 'BUILD_SUCCESS', value: 'true'
       }
       steps{
         sh '''
