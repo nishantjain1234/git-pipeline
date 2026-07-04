@@ -6,7 +6,7 @@ pipeline {
       steps{
         sh '''
         echo "Pipe-1"
-        cat pipe1.txt
+        cat pipe4.txt
         '''
       }
     }
